@@ -19,19 +19,15 @@
       <v-list nav dense>
         <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4"> 
           <v-list-item>
-            <v-list-item-title>Cursos</v-list-item-title>
+            <v-list-item-title>Tela de Usuario</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Usuarios</v-list-item-title>
+            <v-list-item-title>Novo Usuario</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Calendario</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title></v-list-item-title>
+            <v-list-item-title>Todos Usuarios</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -51,6 +47,6 @@ export default {
       group () {
         this.drawer = false
       },
-    },
+    }
   }
 </script>

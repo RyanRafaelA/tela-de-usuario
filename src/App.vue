@@ -4,7 +4,6 @@
       <cabecalho/>
       <corpo/>
       <rodape/>
-      
     </v-main>
   </v-app>
 </template>
