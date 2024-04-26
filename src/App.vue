@@ -2,19 +2,20 @@
   <v-app>
     <v-main>
       <cabecalho/>
-      <tabelaUsuario />
+      <corpo/>
+      
     </v-main>
   </v-app>
 </template>
 
 <script>
   import cabecalho from './components/cabecalho.vue' 
-  import tabelaUsuario from './components/tabelaUsuario.vue'
+  import corpo from './components/corpo.vue'
 
   export default{
     components:{
       cabecalho,
-      tabelaUsuario
+      corpo
     }
   }
 </script>
