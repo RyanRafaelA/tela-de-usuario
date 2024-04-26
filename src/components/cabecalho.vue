@@ -5,7 +5,7 @@
 
       <v-toolbar-title>
         <v-icon x-large>mdi-account-circle-outline</v-icon>
-        Tela de Usuario
+        Tela de Usuarios
       </v-toolbar-title>
 
       <v-spacer></v-spacer>

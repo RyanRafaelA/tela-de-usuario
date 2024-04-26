@@ -1,6 +1,6 @@
 <template>
     <v-row justify="center">
-      <v-dialog v-model="dialog" persistent max-width="600px">
+      <v-dialog v-model="dialog" persistent max-width="700px">
         <template v-slot:activator="{ on, attrs }">
           <v-btn color="primary" dark v-bind="attrs" v-on="on">
             Novo Usuario <v-icon>mdi-acount</v-icon>
@@ -14,6 +14,9 @@
             <v-container>
               <v-row>
                 <v-col cols="12" sm="6" md="4">
+                  <v-text-field label="ID*" required ></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6" md="4">
                   <v-text-field label="Primeiro nome*" required ></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
@@ -23,7 +26,7 @@
                   <v-text-field label="Email*" required></v-text-field>
                 </v-col>
                 <v-col cols="12">
-                  <v-text-field label="Password*" type="password"
+                  <v-text-field label="Senha*" type="password"
                     required></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6">
@@ -31,11 +34,12 @@
                     required></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6">
-                  <v-select
-                    :items="['Masculino', 'Feminino']"
-                    label="Sexo"
-                    multiple
-                  ></v-select>
+                  <v-select :items="['Masculino', 'Feminino']"
+                    label="Sexo"></v-select>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <v-select :items="['Desenvolvimento Web', 'Desenvolvimento de Jogo', 'Java POO', 'Teste - Manutenção e Análise de Sistemas']" 
+                  label="Cursos" multiple></v-select>
                 </v-col>
               </v-row>
             </v-container>
@@ -58,6 +62,6 @@
   export default {
     data: () => ({
       dialog: false,
-    }),
+    })
   }
 </script>
