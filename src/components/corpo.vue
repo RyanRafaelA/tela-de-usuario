@@ -1,3 +1,3 @@
 <template>
-    <div>ola mundo</div>
+    <div>Ola mundo</div>
 </template>
