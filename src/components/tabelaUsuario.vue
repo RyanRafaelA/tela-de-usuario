@@ -18,6 +18,9 @@
             <th class="text-left">
               E-mail
             </th>
+            <th class="text-left">
+              Curso
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +30,7 @@
             <td>{{ item.idade }}</td>
             <td>{{ item.sexo }}</td>
             <td>{{ item.email }}</td>
+            <td>{{ item.curso }}</td>
             <td>
               <v-btn icon>
                 <v-icon>mdi-pencil-circle</v-icon>
@@ -45,8 +49,6 @@
 </template>
 
 <script>
-import novoUsuario from './botaoNovoUsuario.vue/salvar()'
-
   export default {
     data () {
       return {
@@ -73,8 +75,7 @@ import novoUsuario from './botaoNovoUsuario.vue/salvar()'
             this.listaAluno.splice(x, 1)
           }
         }
-      },
-      novoUsuario
+      }
     }
   }
 </script>

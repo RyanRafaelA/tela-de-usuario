@@ -3,12 +3,12 @@
     <v-dialog v-model="dialog" persistent max-width="700px">
       <template v-slot:activator="{ on, attrs }">
         <v-btn color="primary" dark v-bind="attrs" v-on="on">
-          Novo Usuario <v-icon>mdi-acount</v-icon>
+          Novo Estudante <v-icon>mdi-plus-thick</v-icon>
         </v-btn>
       </template>
       <v-card>
         <v-card-title>
-          <span class="text-h5">Novo Usuario</span>
+          <span class="text-h5">Novo Estudante</span>
         </v-card-title>
         <v-card-text>
           <v-container>
@@ -76,7 +76,6 @@ export default {
         this.curso=''
 
         this.fechar()
-        return this.lista
       }
     },
     fechar(){
