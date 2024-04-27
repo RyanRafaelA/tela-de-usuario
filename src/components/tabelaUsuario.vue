@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import novoUsuario from './botaoNovoUsuario.vue/salvar()'
+
   export default {
     data () {
       return {
@@ -71,7 +73,8 @@
             this.listaAluno.splice(x, 1)
           }
         }
-      }
+      },
+      novoUsuario
     }
   }
 </script>
