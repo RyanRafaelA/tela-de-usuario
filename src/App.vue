@@ -10,8 +10,6 @@
 </template>
 
 <script>
-  /**eslint-disable**/
-
   import cabecalho from './components/cabecalho.vue' 
   import rodape from './components/rodape.vue'
   import tabelaUsuario from './components/tabelaUsuario.vue'
@@ -50,8 +48,8 @@
           }
         }
       },
-      novoUsuario(vetor){
-        let usuario={id: this.listaAlunos.length, primeiroNome: vetor[0], sobrenome:vetor[1], cpf:vetor[2], dataNascimento:vetor[3], sexo: vetor[4], email:vetor[5], telefone:vetor[6], curso:vetor[7]}
+      novoUsuario(lista){
+        let usuario={id: this.listaAlunos.length+1, primeiroNome: lista.nome, sobrenome:lista.sobrenome, cpf:lista.cpf, dataNascimento:lista.dataNascimento, sexo: lista.sexo, email:lista.email, telefone:lista.telefone, curso:lista.curso}
 
         this.listaAlunos.push(usuario)
       }

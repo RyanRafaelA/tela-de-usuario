@@ -23,7 +23,7 @@
                 <v-text-field label="CPF*" persistent-hint required v-model="cpf"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="5">
-                <v-text-field label="Telfone*" persistent-hint required v-model="telefone"></v-text-field>
+                <v-text-field label="Telefone*" persistent-hint required v-model="telefone"></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field label="Email*" required v-model="email"></v-text-field>
@@ -66,8 +66,7 @@ export default {
       telefone: "",
       email: '',
       sexo:'',
-      curso: '',
-      lista: []
+      curso: ''
     }
   },
   methods:{
@@ -75,15 +74,11 @@ export default {
       if(this.pNome ===''||this.sobrenome===''||this.cpf==''||this.telefone=='' ||this.dataNascimento ==''||this.email === ''||this.sexo ===''||this.curso===''){
         alert('Campos não fornecidos')
       } else{
-        this.lista[this.pNome, this.sobrenome, this.cpf, this.telefone, this.dataNascimento, this.sexo, this.email, this.curso]
-        this.$emit('novoUsuario', this.lista)
-        this.pNome=''
-        this.sobrenome=''
-        this.cpf=''
-        this.dataNascimento=''
-        this.email=''
-        this.sexo=''
-        this.curso=''
+        var lista={nome:this.pNome, sobrenome:this.sobrenome, cpf:this.cpf, telefone:this.telefone, dataNascimento:this.dataNascimento, sexo:this.sexo, email:this.email, curso:this.curso}
+        
+        this.$emit('novoUsuario', lista)
+        
+        this.fechar()
       }
     },
     fechar(){
