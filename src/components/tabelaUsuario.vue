@@ -43,7 +43,7 @@
               <botaoEditarUsuario/>
             </td>
             <td>
-              <v-btn icon @click="$emit('deletarAluno', item.id)" color="blue darken-2">
+              <v-btn icon @click="deletarAluno(item.id)" color="blue darken-2">
                 <v-icon>mdi-delete</v-icon>
               </v-btn>
             </td>
@@ -58,15 +58,19 @@
 import botaoEditarUsuario from './botaoEditarUsuario.vue'
 
   export default {
-    emit: [],
+    components:{
+      botaoEditarUsuario
+    },
     props:{
       listaAlunos:{
         type: Object,
         required: true
       }
     },
-    components:{
-      botaoEditarUsuario
+    methods:{
+      deletarAluno(id){
+        this.$emit('deletarAluno', id)
+      }
     }
   }
 </script>

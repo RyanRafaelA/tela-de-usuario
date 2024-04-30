@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <cabecalho/>
-      <novoUsuario/>
+      <novoUsuario @novoUsuario="novoUsuario($event)"/>
       <tabelaUsuario :listaAlunos="listaAlunos" @deletarAluno="deletarAluno($event)"/>
       <rodape/>
     </v-main>
@@ -44,11 +44,16 @@
     },
     methods:{
       deletarAluno(id){
-        for(let x=0; x<this.listaAluno.length; x++){
-          if(this.listaAluno[x].id === id){
-            this.listaAluno.splice(x, 1)
+        for(let x=0; x<this.listaAlunos.length; x++){
+          if(this.listaAlunos[x].id === id){
+            this.listaAlunos.splice(x, 1)
           }
         }
+      },
+      novoUsuario(vetor){
+        let usuario={id: this.listaAlunos.length, primeiroNome: vetor[0], sobrenome:vetor[1], cpf:vetor[2], dataNascimento:vetor[3], sexo: vetor[4], email:vetor[5], telefone:vetor[6], curso:vetor[7]}
+
+        this.listaAlunos.push(usuario)
       }
     }
 

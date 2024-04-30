@@ -76,6 +76,7 @@ export default {
         alert('Campos não fornecidos')
       } else{
         this.lista[this.pNome, this.sobrenome, this.cpf, this.telefone, this.dataNascimento, this.sexo, this.email, this.curso]
+        this.$emit('novoUsuario', this.lista)
         this.pNome=''
         this.sobrenome=''
         this.cpf=''
