@@ -19,11 +19,14 @@
               <v-col cols="12" sm="6" md="4">
                 <v-text-field label="Sobrenome*" persistent-hint required v-model="sobrenome"></v-text-field>
               </v-col>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field label="CPF*" persistent-hint required v-model="cpf"></v-text-field>
+              </v-col>
               <v-col cols="12">
                 <v-text-field label="Email*" required v-model="email"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
-                <v-text-field label="idade*" type="number" required v-model="idade"></v-text-field>
+                <v-text-field label="dataNascimento*" required v-model="dataNascimento"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
                 <v-select :items="['Masculino', 'Feminino']" label="Sexo" v-model="sexo"></v-select>
@@ -55,7 +58,8 @@ export default {
       dialog: false,
       pNome: '',
       sobrenome: '',
-      idade: '',
+      dataNascimento: '',
+      cpf: '',
       email: '',
       sexo:'',
       curso: '',
@@ -64,18 +68,17 @@ export default {
   },
   methods:{
     salvar(){
-      if(this.pNome ===''||this.sobrenome===''||this.idade ==''||this.email === ''||this.sexo ===''||this.curso===''){
+      if(this.pNome ===''||this.sobrenome===''||this.cpf=='' ||this.dataNascimento ==''||this.email === ''||this.sexo ===''||this.curso===''){
         alert('Campos não fornecidos')
       } else{
-        this.lista[this.pNome, this.sobrenome, this.idade, this.sexo, this.email, this.curso]
+        this.lista[this.pNome, this.sobrenome, this.cpf, this.dataNascimento, this.sexo, this.email, this.curso]
         this.pNome=''
         this.sobrenome=''
-        this.idade=''
+        this.cpf=''
+        this.dataNascimento=''
         this.email=''
         this.sexo=''
         this.curso=''
-
-        this.fechar()
       }
     },
     fechar(){
