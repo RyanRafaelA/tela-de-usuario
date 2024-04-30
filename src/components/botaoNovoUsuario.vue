@@ -19,8 +19,11 @@
               <v-col cols="12" sm="6" md="4">
                 <v-text-field label="Sobrenome*" persistent-hint required v-model="sobrenome"></v-text-field>
               </v-col>
-              <v-col cols="12" sm="6" md="4">
+              <v-col cols="12" sm="6" md="5">
                 <v-text-field label="CPF*" persistent-hint required v-model="cpf"></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="5">
+                <v-text-field label="Telfone*" persistent-hint required v-model="telefone"></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field label="Email*" required v-model="email"></v-text-field>
@@ -60,6 +63,7 @@ export default {
       sobrenome: '',
       dataNascimento: '',
       cpf: '',
+      telefone: "",
       email: '',
       sexo:'',
       curso: '',
@@ -68,10 +72,10 @@ export default {
   },
   methods:{
     salvar(){
-      if(this.pNome ===''||this.sobrenome===''||this.cpf=='' ||this.dataNascimento ==''||this.email === ''||this.sexo ===''||this.curso===''){
+      if(this.pNome ===''||this.sobrenome===''||this.cpf==''||this.telefone=='' ||this.dataNascimento ==''||this.email === ''||this.sexo ===''||this.curso===''){
         alert('Campos não fornecidos')
       } else{
-        this.lista[this.pNome, this.sobrenome, this.cpf, this.dataNascimento, this.sexo, this.email, this.curso]
+        this.lista[this.pNome, this.sobrenome, this.cpf, this.telefone, this.dataNascimento, this.sexo, this.email, this.curso]
         this.pNome=''
         this.sobrenome=''
         this.cpf=''

@@ -13,6 +13,9 @@
           <v-card-text>
             <v-container>
               <v-row>
+                <v-col cols="12" sm="6" md="5">
+                <v-text-field label="Telfone*" persistent-hint required v-model="telefone"></v-text-field>
+              </v-col>
                 <v-col cols="12">
                   <v-text-field label="Email*" required v-model="email"></v-text-field>
                 </v-col>
@@ -41,6 +44,7 @@
     data(){
       return{
         dialog: false,
+        telefone: '',
         email: '',
         curso: '',
         lista: []
@@ -48,10 +52,10 @@
     },
     methods:{
       salvar(){
-        if(this.email === ''||this.curso===''){
+        if(this.email === ''||this.curso===''||this.telefone===''){
           alert('Campos não fornecidos')
         } else{
-          this.lista[this.email, this.curso]
+          this.lista[this.email,this.telefone, this.curso]
           this.email=''
           this.curso=''
         }

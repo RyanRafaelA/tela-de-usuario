@@ -22,6 +22,9 @@
               E-mail
             </th>
             <th class="text-left">
+              Telefone
+            </th>
+            <th class="text-left">
               Curso
             </th>
           </tr>
@@ -34,12 +37,13 @@
             <td>{{ item.dataNascimento }}</td>
             <td>{{ item.sexo }}</td>
             <td>{{ item.email }}</td>
+            <td>{{ item.telefone }}</td>
             <td>{{ item.curso }}</td>
             <td>
               <botaoEditarUsuario/>
             </td>
             <td>
-              <v-btn icon @click="deletarUser(item.id)" color="blue darken-2">
+              <v-btn icon @click="$emit('deletarAluno', item.id)" color="blue darken-2">
                 <v-icon>mdi-delete</v-icon>
               </v-btn>
             </td>
@@ -54,19 +58,11 @@
 import botaoEditarUsuario from './botaoEditarUsuario.vue'
 
   export default {
+    emit: [],
     props:{
       listaAlunos:{
         type: Object,
         required: true
-      }
-    },
-    methods:{
-      deletarUser(id){
-        for(let x=0; x<this.listaAluno.length; x++){
-          if(this.listaAluno[x].id === id){
-            this.listaAluno.splice(x, 1)
-          }
-        }
       }
     },
     components:{
