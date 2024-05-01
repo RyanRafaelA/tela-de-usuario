@@ -63,7 +63,7 @@ export default {
       sobrenome: '',
       dataNascimento: '',
       cpf: '',
-      telefone: "",
+      telefone: '',
       email: '',
       sexo:'',
       curso: ''
@@ -83,6 +83,14 @@ export default {
     },
     fechar(){
       this.dialog = false
+      this.pNome= ''
+      this.sobrenome= ''
+      this.dataNascimento= ''
+      this.cpf= ''
+      this.telefone=''
+      this.email=''
+      this.sexo=''
+      this.curso= ''
     }
   }
 }

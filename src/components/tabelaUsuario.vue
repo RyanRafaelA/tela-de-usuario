@@ -40,7 +40,7 @@
             <td>{{ item.telefone }}</td>
             <td>{{ item.curso }}</td>
             <td>
-              <botaoEditarUsuario/>
+              <botaoEditarUsuario :aluno="item" @editarAluno="editarAluno($event)"/>
             </td>
             <td>
               <v-btn icon @click="deletarAluno(item.id)" color="blue darken-2">
@@ -70,6 +70,9 @@ import botaoEditarUsuario from './botaoEditarUsuario.vue'
     methods:{
       deletarAluno(id){
         this.$emit('deletarAluno', id)
+      },
+      editarAluno(alunoEditado){
+        this.$emit('editarAluno', alunoEditado)
       }
     }
   }

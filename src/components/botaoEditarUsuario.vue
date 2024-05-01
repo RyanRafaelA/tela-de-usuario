@@ -41,27 +41,46 @@
   
   <script>
   export default {
+    props:{
+      aluno:{
+        type: Object,
+        required: true
+      }
+    },
     data(){
       return{
         dialog: false,
         telefone: '',
         email: '',
-        curso: '',
-        lista: []
+        curso: ''
       }
     },
     methods:{
       salvar(){
-        if(this.email === ''||this.curso===''||this.telefone===''){
-          alert('Campos não fornecidos')
+        let alunoEditado = {...this.aluno}
+
+        if(this.email===''&&this.curso===''&&this.telefone===''){
+          alert('Nenhum campo modificado')
         } else{
-          this.lista[this.email,this.telefone, this.curso]
-          this.email=''
-          this.curso=''
+          if(this.email!=''){
+            alunoEditado.email = this.email
+          }
+          if(this.curso!=''){
+            alunoEditado.curso = this.curso
+          }
+          if(this.telefone!=''){
+            alunoEditado.telefone = this.telefone
+          }
+
+          this.$emit('editarAluno', alunoEditado)
+          this.fechar()
         }
       },
       fechar(){
         this.dialog = false
+        this.telefone=''
+        this.curso=''
+        this.email=''
       }
     }
   }

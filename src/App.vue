@@ -3,7 +3,7 @@
     <v-main>
       <cabecalho/>
       <novoUsuario @novoUsuario="novoUsuario($event)"/>
-      <tabelaUsuario :listaAlunos="listaAlunos" @deletarAluno="deletarAluno($event)"/>
+      <tabelaUsuario :listaAlunos="listaAlunos" @deletarAluno="deletarAluno($event)" @editarAluno="atualizarAluno($event)"/>
       <rodape/>
     </v-main>
   </v-app>
@@ -52,8 +52,14 @@
         let usuario={id: this.listaAlunos.length+1, primeiroNome: lista.nome, sobrenome:lista.sobrenome, cpf:lista.cpf, dataNascimento:lista.dataNascimento, sexo: lista.sexo, email:lista.email, telefone:lista.telefone, curso:lista.curso}
 
         this.listaAlunos.push(usuario)
+      },
+      atualizarAluno(alunoEditado){
+        for(var x=0; x<this.listaAlunos.length; x++){
+          if(this.listaAlunos[x].id == alunoEditado.id){
+            this.listaAlunos[x] = alunoEditado
+          }
+        }
       }
     }
-
   }
 </script>
