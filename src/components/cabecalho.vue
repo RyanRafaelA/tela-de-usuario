@@ -10,7 +10,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
+      <v-btn icon @click="navegar('/login')">
         <v-icon>mdi-export</v-icon>
       </v-btn>
 
@@ -55,6 +55,11 @@ export default {
       group () {
         this.drawer = false
       },
+    },
+    methods:{
+      navegar(path){
+        this.$router.push(path)
+      }
     }
   }
 </script>

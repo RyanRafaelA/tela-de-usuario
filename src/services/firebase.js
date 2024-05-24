@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyA6IhYMK4iQP04wPnCx2OuWsR9JeJzPLGY",
   authDomain: "projeto-beyond-4185e.firebaseapp.com",
   projectId: "projeto-beyond-4185e",
@@ -11,5 +12,7 @@ const firebaseConfig = {
   measurementId: "G-VC6SMRVJP4"
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const app = initializeApp(config);
+
+export const db = getFirestore(app);
+export const auth = getAuth(app);
