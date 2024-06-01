@@ -55,19 +55,37 @@
 </template>
 
 <script>
+import { db } from '@/services/firebase'
+import { getDocs, collection } from 'firebase/firestore'
+
 import botaoEditarUsuario from './botaoEditarUsuario.vue'
 
   export default {
     components:{
       botaoEditarUsuario
     },
-    props:{
-      listaAlunos:{
-        type: Object,
-        required: true
+    data(){
+      return{
+        listaAlunos: []
       }
     },
+    created(){
+        this.inicializar()
+    },
     methods:{
+      inicializar(){
+        this.listarAlunos()
+      },
+      async listarAlunos(){
+        this.listaAlunos = []
+        
+        const querySnapshot = await getDocs(collection(db, 'alunos'))
+        querySnapshot.forEach((doc) => {
+        const data = {id: doc.id, ...doc.data()} 
+          this.listaAlunos.push(data)
+          console.log(data)
+        })
+      },
       deletarAluno(id){
         this.$emit('deletarAluno', id)
       },
