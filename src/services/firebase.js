@@ -1,18 +1,17 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore"
+import { getAuth } from "firebase/auth"
 
-const config = {
-  apiKey: "AIzaSyA6IhYMK4iQP04wPnCx2OuWsR9JeJzPLGY",
-  authDomain: "projeto-beyond-4185e.firebaseapp.com",
-  projectId: "projeto-beyond-4185e",
-  storageBucket: "projeto-beyond-4185e.appspot.com",
-  messagingSenderId: "850073700312",
-  appId: "1:850073700312:web:ccb6a67e979f953655d4ad",
-  measurementId: "G-VC6SMRVJP4"
+const firebaseConfig = {
+  apiKey: "AIzaSyAoDiYJlYI2amjW0IUUXh2LScWiko1_9Pg",
+  authDomain: "projetobeyond-7015e.firebaseapp.com",
+  projectId: "projetobeyond-7015e",
+  storageBucket: "projetobeyond-7015e.appspot.com",
+  messagingSenderId: "1005142714511",
+  appId: "1:1005142714511:web:f93709fbaf585788b268fa"
 };
 
-const app = initializeApp(config);
+initializeApp(firebaseConfig)
 
-export const db = getFirestore(app);
-export const auth = getAuth(app);
+export const db = getFirestore()
+export const auth = getAuth()
