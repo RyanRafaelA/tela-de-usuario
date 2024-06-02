@@ -30,20 +30,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in listaAlunos" :key="index">
-            <td>{{ item.primeiroNome }}</td>
-            <td>{{ item.sobrenome }}</td>
-            <td>{{ item.cpf }}</td>
-            <td>{{ item.dataNascimento }}</td>
-            <td>{{ item.sexo }}</td>
-            <td>{{ item.email }}</td>
-            <td>{{ item.telefone }}</td>
-            <td>{{ item.curso }}</td>
+          <tr v-for="(aluno, index) in listaAlunos" :key="index">
+            <td>{{ aluno.primeiroNome }}</td>
+            <td>{{ aluno.sobrenome }}</td>
+            <td>{{ aluno.cpf }}</td>
+            <td>{{ aluno.dataNascimento }}</td>
+            <td>{{ aluno.sexo }}</td>
+            <td>{{ aluno.email }}</td>
+            <td>{{ aluno.telefone }}</td>
+            <td>{{ aluno.curso }}</td>
             <td>
-              <botaoEditarUsuario :aluno="item" @editarAluno="editarAluno($event)"/>
+              <editarUsuario :aluno="aluno" @editarAluno="editarAluno($event)"/>
             </td>
             <td>
-              <v-btn icon @click="deletarAluno(item.id)" color="blue darken-2">
+              <v-btn icon @click="deletarAluno(aluno.id)" color="blue darken-2">
                 <v-icon>mdi-delete</v-icon>
               </v-btn>
             </td>
@@ -56,13 +56,13 @@
 
 <script>
 import { db } from '@/services/firebase'
-import { getDocs, collection } from 'firebase/firestore'
+import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore'
 
-import botaoEditarUsuario from './botaoEditarUsuario.vue'
+import editarUsuario from './botaoEditarUsuario.vue'
 
   export default {
     components:{
-      botaoEditarUsuario
+      editarUsuario
     },
     data(){
       return{
@@ -86,8 +86,9 @@ import botaoEditarUsuario from './botaoEditarUsuario.vue'
           console.log(data)
         })
       },
-      deletarAluno(id){
-        this.$emit('deletarAluno', id)
+      async deletarAluno(id){
+        await deleteDoc(doc(db, 'alunos', id))
+        this.listarAlunos()
       },
       editarAluno(alunoEditado){
         this.$emit('editarAluno', alunoEditado)

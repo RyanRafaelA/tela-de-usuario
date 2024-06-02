@@ -14,9 +14,6 @@
           <v-container>
             <v-row>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Matricula*" required v-model="matricula"></v-text-field>
-              </v-col>
-              <v-col cols="12" sm="6" md="4">
                 <v-text-field label="Primeiro nome*" required v-model="pNome"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4">
@@ -65,7 +62,6 @@ export default {
   data(){
     return{
       dialog: false,
-      matricula: 0,
       pNome: '',
       sobrenome: '',
       dataNascimento: '',
@@ -78,10 +74,10 @@ export default {
   },
   methods:{
     async salvar(){
-      if(this.matricula===0,this.pNome ===''||this.sobrenome===''||this.cpf==''||this.telefone=='' ||this.dataNascimento ==''||this.email === ''||this.sexo ===''||this.curso===''){
+      if(this.pNome ===''||this.sobrenome===''||this.cpf==''||this.telefone=='' ||this.dataNascimento ==''||this.email === ''||this.sexo ===''||this.curso===''){
         alert('Campos não fornecidos')
       } else{
-        var lista={matricula: this.matricula, nome:this.pNome, sobrenome:this.sobrenome, cpf:this.cpf, telefone:this.telefone, dataNascimento:this.dataNascimento, sexo:this.sexo, email:this.email, curso:this.curso}
+        var lista={nome:this.pNome, sobrenome:this.sobrenome, cpf:this.cpf, telefone:this.telefone, dataNascimento:this.dataNascimento, sexo:this.sexo, email:this.email, curso:this.curso}
   
         await addDoc(collection(db, 'alunos'), lista)
 
@@ -90,7 +86,6 @@ export default {
     },
     fechar(){
       this.dialog = false
-      this.matricula= 0
       this.pNome= ''
       this.sobrenome= ''
       this.dataNascimento= ''
