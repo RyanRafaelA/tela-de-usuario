@@ -13,12 +13,10 @@
     import cabecalho from '../components/cabecalho.vue' 
     import rodape from '../components/rodape.vue'
     import tabelaUsuario from '../components/tabelaUsuario.vue'
-    import novoUsuario from '../components/botaoNovoUsuario.vue'
   
     export default{
       components:{
         cabecalho,
-        novoUsuario,
         tabelaUsuario,
         rodape
       }, 
